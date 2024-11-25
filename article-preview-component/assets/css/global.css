@@ -1,0 +1,211 @@
+:root {
+  --dark-gray: hsl(217, 19%, 35%);
+  --medium-gray: hsl(214, 17%, 51%);
+  --soft-gray: hsl(212, 23%, 69%);
+  --light-gray: hsl(210, 46%, 95%);
+  --bg: #f2f2f2;
+  --white: #ffffff;
+  --font-primary: "Manrope", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--light-gray);
+  max-width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-primary);
+  font-size: 0.8125rem;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+
+/* Attribuiton */
+.attribution {
+  font-size: 0.625rem;
+  text-align: center;
+  display: none;
+}
+
+main {
+  position: relative;
+  padding: 0 1rem;
+}
+
+/* Card */
+.card {
+  background-color: var(--white);
+  border-radius: 0.625rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  max-width: 20.4375rem;
+}
+.card .img-card {
+  display: block;
+  width: 100%;
+  object-fit: cover;
+}
+.card .body-card .content-card {
+  padding: 2.25rem 2rem 1.25rem 2rem;
+}
+.card .body-card .content-card .title-card {
+  font-size: 1rem;
+  color: var(--dark-gray);
+  line-height: 1.5rem;
+  letter-spacing: 0.0125rem;
+  padding-bottom: 0.75rem;
+}
+.card .body-card .content-card .text-card {
+  color: var(--soft-gray);
+  line-height: 1.25rem;
+  letter-spacing: 0.0075rem;
+}
+.card .body-card .author-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 2rem 1.25rem 2rem;
+}
+.card .body-card .author-card .info-author {
+  display: flex;
+  align-items: center;
+}
+.card .body-card .author-card .info-author .avatar {
+  max-width: 2.5rem;
+  height: auto;
+  border-radius: 50%;
+  margin-right: 1rem;
+}
+.card .body-card .author-card .info-author .name-author {
+  font-size: 0.8125rem;
+  line-height: 1.25rem;
+  letter-spacing: 0.0075rem;
+  color: var(--dark-gray);
+}
+.card .body-card .author-card .info-author .date {
+  color: var(--soft-gray);
+  line-height: 1.25rem;
+  letter-spacing: 0.0075rem;
+}
+.card .body-card .author-card .icon {
+  background-color: var(--light-gray);
+  padding: 0.5625rem 0.5625rem 0.4375rem 0.5625rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all ease-in-out 0.3s;
+}
+.card .body-card .author-card .icon:hover {
+  background-color: var(--medium-gray);
+}
+.card .body-card .author-card .icon:hover .icon-share {
+  fill: var(--light-gray);
+}
+.card .body-card .author-card .icon .icon-share {
+  fill: var(--medium-gray);
+}
+.card .body-card .author-card .icon-active {
+  background-color: var(--medium-gray);
+}
+.card .body-card .author-card .icon-active .icon-share {
+  fill: var(--light-gray);
+}
+.card .body-card .author-card-share {
+  background-color: var(--dark-gray);
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.375rem 2rem;
+}
+.card .body-card .author-card-share .share-active {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.card .body-card .author-card-share .share-active p {
+  text-transform: uppercase;
+  color: var(--medium-gray);
+  letter-spacing: 0.3125rem;
+  line-height: 1.25rem;
+}
+.card .body-card .author-card-share .share-active .social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+.card .body-card .author-card-share .icon {
+  background-color: var(--medium-gray);
+  padding: 0.5625rem 0.5625rem 0.4375rem 0.5625rem;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+.card .body-card .author-card-share .icon:hover {
+  background-color: var(--medium-gray);
+  color: var(--light-gray);
+}
+.card .body-card .author-card-share .icon .icon-share {
+  fill: var(--light-gray);
+}
+@media (min-width: 48rem) {
+  .card {
+    flex-direction: row;
+    max-width: 45.625rem;
+    max-height: 17.5rem;
+  }
+  .card .img-card {
+    max-width: 17.8125rem;
+    height: auto;
+  }
+}
+
+.share {
+  display: none;
+}
+.share .share-dk {
+  position: absolute;
+  background-color: var(--dark-gray);
+  padding: 1.125rem 2.3125rem;
+  border-radius: 0.625rem;
+  bottom: 5.25rem;
+  right: -66px;
+  z-index: 10;
+}
+.share .share-dk .share-active {
+  display: flex;
+  align-items: center;
+  gap: 1.3125rem;
+}
+.share .share-dk .share-active p {
+  text-transform: uppercase;
+  color: var(--medium-gray);
+  letter-spacing: 0.3125rem;
+  line-height: 1.25rem;
+}
+.share .share-dk .share-active .social {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-top: 0.6875rem solid var(--dark-gray);
+  border-left: 0.75rem solid transparent;
+  border-right: 0.75rem solid transparent;
+  bottom: 4.625rem;
+  right: 3.25rem;
+}
+
+/*# sourceMappingURL=global.css.map */

@@ -1,0 +1,151 @@
+@use "sass:list";
+
+:root {
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --color-text: hsl(234, 12%, 34%);
+  --bg-ver: hsl(229, 6%, 66%);
+  --bg-card: hsl(0, 0%, 98%);
+  --font-primary: "Poppins", sans-serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.attribution {
+  display: none;
+  font-size: 0.625rem;
+  text-align: center;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 0.9375rem;
+  font-style: normal;
+  color: var(--color-text);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  width: 100%;
+  max-width: 69.375rem;
+  height: 100%;
+  margin: auto;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.header {
+  text-align: center;
+  letter-spacing: 0.0106rem;
+  padding: 5.3125rem 0 4.75rem 0;
+  max-width: 33.75rem;
+  margin: 0 auto;
+
+  @media (min-width: 69.375rem) {
+    padding: 1rem 0 5rem 0;
+
+    p {
+      font-size: 2.25rem;
+    }
+
+    h1 {
+      font-size: 2.25rem;
+    }
+  }
+
+  p {
+    font-size: 1.5rem;
+    font-weight: 200;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    padding-bottom: 0.8125rem;
+  }
+
+  .info {
+    font-size: 0.9375rem;
+    font-weight: 400;
+    line-height: 1.5625rem;
+    letter-spacing: 0.0063rem;
+    opacity: 0.5;
+  }
+}
+
+.cards {
+  display: grid;
+  gap: 1.5625rem;
+
+  @media (min-width: 69.375rem) {
+    grid-template-columns: 1fr 1fr 1fr;
+    justify-items: center;
+    align-items: center;
+    gap: 1.875rem;
+
+    .card:nth-child(1) {
+      grid-column: 1 / span 1;
+      grid-row: 2 / span 2;
+    }
+
+    .card:nth-child(2) {
+      grid-column: 2 / span 1;
+      grid-row: 1 / span 2;
+    }
+
+    .card:nth-child(3) {
+      grid-column: 2 / span 1;
+      grid-row: 3 / span 2;
+    }
+
+    .card:nth-child(4) {
+      grid-column: 3;
+      grid-row: 2 / span 2;
+    }
+  }
+
+  $colors: var(--cyan), var(--red), var(--orange), var(--blue);
+
+  .card {
+    background-color: var(--soft-white);
+    border-top: 0.2219rem solid var(--cyan);
+    border-radius: 0.5rem;
+    padding: 1.75rem;
+    width: 100%;
+    box-shadow: 0rem 0.9375rem 1.875rem -0.6875rem rgba(131, 166, 210, 0.5);
+
+    h2 {
+      font-size: 1.25rem;
+      padding-bottom: 0.0625rem;
+    }
+
+    p {
+      font-size: 0.8125rem;
+      opacity: 0.5;
+      padding-bottom: 2.0625rem;
+    }
+
+    img {
+      display: block;
+      margin-left: auto;
+    }
+  }
+
+  @for $i from 1 through list.length($colors) {
+    .card:nth-child(#{$i}) {
+      border-top-color: list.nth($colors, $i);
+    }
+  }
+}

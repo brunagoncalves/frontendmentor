@@ -1,0 +1,136 @@
+@import url("https://fonts.googleapis.com/css2?family=Figtree:wght@300..900&display=swap");
+
+:root {
+  --yellow: hsl(47, 88%, 63%);
+  --white: hsl(0, 0%, 100%);
+  --gray-500: hsl(0, 0%, 42%);
+  --gray-950: hsl(0, 0%, 7%);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  font-family: "Figtree", sans-serif;
+  background-color: var(--yellow);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.text-medium14 {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--gray-950);
+  line-height: 150%;
+}
+
+.text-medium14-bold {
+  font-size: 0.875rem;
+  font-weight: 800;
+  color: var(--gray-950);
+  line-height: 150%;
+}
+
+.text-medium-base {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--gray-500);
+  line-height: 150%;
+}
+
+.text-title {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--gray-950);
+  line-height: 150%;
+}
+
+.text-medium24-bold:hover {
+  color: var(--yellow);
+}
+
+.card {
+  background-color: var(--white);
+  width: 100%;
+  max-width: 24rem;
+  border: 1px solid var(--gray-950);
+  border-radius: 1.25rem;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 576px) {
+  .card {
+    filter: drop-shadow(8px 8px 0px var(--gray-950));
+  }
+  .text-title {
+    font-size: 1.5rem;
+  }
+}
+
+.card a {
+  text-decoration: none;
+  transition: all ease-in-out 0.3s;
+}
+
+.card-header img {
+  display: block;
+  max-width: 100%;
+  border-radius: 0.625rem;
+}
+
+.learning {
+  display: inline-block;
+  background-color: var(--yellow);
+  padding: 0.25rem 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  gap: 0.75rem;
+}
+
+.card-author {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.card-author img {
+  display: block;
+  max-width: 100%;
+  width: 2rem;
+  height: auto;
+}
+
+.attribution {
+  display: none;
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 1.5rem 0 1rem;
+}
+
+.attribution a {
+  font-weight: 800;
+  color: var(--gray-950);
+}

@@ -1,0 +1,154 @@
+:root {
+  --font-primary: "Outfit", sans-serif;
+  --cyan: hsl(178, 100%, 50%);
+  --soft-blue: hsl(215, 51%, 70%);
+  --white: hsl(0, 0%, 100%);
+  --line: hsl(215, 32%, 27%);
+  --bg: hsl(217, 54%, 11%);
+  --bg-card: hsl(216, 50%, 16%);
+}
+
+html {
+  font-size: 1.125rem;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.text-400 {
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  font-family: var(--font-primary);
+  background-color: var(--bg);
+}
+
+.attribution {
+  font-size: 0.625rem;
+  align-items: center;
+  display: none;
+}
+
+main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+main .card {
+  background-color: var(--bg-card);
+  padding: 1.5rem;
+  border-radius: 0.9375rem;
+  max-width: 20.4375rem;
+}
+main .card .image {
+  position: relative;
+  cursor: pointer;
+}
+main .card .image:hover .overlay {
+  opacity: 50.3%;
+}
+main .card .image .card-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+main .card .image .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background-color: var(--cyan);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+main .card .card-info .card-title a {
+  font-size: 1.375rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: all 0.3s ease-in;
+}
+main .card .card-info .card-title a:hover {
+  color: var(--cyan);
+}
+main .card .card-info .card-about {
+  font-size: 1.125rem;
+  font-weight: 300;
+  line-height: 1.625rem;
+  color: var(--soft-blue);
+  margin: 0.75rem 0 1rem 0;
+}
+main .card .card-info .card-coin {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+main .card .card-info .card-coin .coin,
+main .card .card-info .card-coin .time {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.9375rem;
+}
+main .card .card-info .card-coin .coin {
+  font-weight: 600;
+  color: var(--cyan);
+}
+main .card .card-info .card-coin .time {
+  font-weight: 400;
+  color: var(--soft-blue);
+}
+main .card hr {
+  margin: 1rem 0 1rem 0;
+  border: none;
+  height: 1px;
+  background-color: var(--line);
+}
+main .card .card-creator {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+main .card .card-creator .avatar {
+  display: block;
+  max-width: 2.0625rem;
+  height: auto;
+  border: 0.0625rem solid var(--white);
+  border-radius: 50%;
+}
+main .card .card-creator .name-creator {
+  font-size: 0.9375rem;
+  color: var(--soft-blue);
+}
+main .card .card-creator .name-creator a {
+  color: var(--white);
+  transition: all 0.3s ease-in;
+}
+main .card .card-creator .name-creator a:hover {
+  color: var(--cyan);
+}
+
+/*# sourceMappingURL=global.css.map */
