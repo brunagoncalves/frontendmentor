@@ -200,3 +200,22 @@ body {
     }
   }
 }
+
+.box-success {
+  background-color: var(--white);
+  padding: 4rem;
+  border-radius: 2.25rem;
+  max-width: 31.5rem;
+
+  img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 2.5rem;
+  }
+
+  p {
+    margin-top: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+}

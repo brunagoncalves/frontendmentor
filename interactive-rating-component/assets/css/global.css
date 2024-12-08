@@ -1,0 +1,93 @@
+html {
+  font-size: 93.75%;
+}
+
+body {
+  font-family: "Overpass", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.9375rem;
+  background-color: hsl(216, 12%, 8%);
+  color: hsl(0, 0%, 100%);
+}
+
+.font-base {
+  font-family: "Overpass", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  display: none;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.box-feedback {
+  max-width: 32.125rem;
+  background: rgb(35, 42, 52);
+  background: radial-gradient(circle, rgb(35, 42, 52) 0%, rgb(24, 30, 39) 100%);
+  margin: 1.5rem;
+  padding: 1.5rem;
+  border-radius: 0.9375rem;
+}
+.box-feedback .star-icon {
+  background-color: hsl(213, 19%, 18%);
+  padding: 1rem;
+  border-radius: 50%;
+}
+.box-feedback .text-feedback {
+  line-height: 1.5rem;
+  max-width: 21.25rem;
+  color: hsl(217, 12%, 63%);
+}
+.box-feedback .rating-form .rating {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.125rem;
+}
+.box-feedback .rating-form .rating input {
+  display: none;
+}
+.box-feedback .rating-form .rating label {
+  background-color: hsl(213, 19%, 18%);
+  padding: 1.125rem 1.4375rem;
+  border-radius: 50%;
+  color: hsl(217, 12%, 63%);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+.box-feedback .rating-form .rating label:hover {
+  background-color: hsl(25, 97%, 53%);
+  color: hsl(213, 19%, 18%);
+}
+.box-feedback .btn-submit {
+  width: 100%;
+  display: block;
+  margin-top: 1.5rem;
+  padding: 0.875rem;
+  border: none;
+  border-radius: 1.4063rem;
+  background-color: hsl(25, 97%, 53%);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.1169rem;
+  cursor: pointer;
+}
+.box-feedback .btn-submit:hover {
+  background-color: hsl(0, 0%, 100%);
+}
+
+/*# sourceMappingURL=global.css.map */

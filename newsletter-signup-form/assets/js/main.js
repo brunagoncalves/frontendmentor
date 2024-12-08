@@ -1,18 +1,35 @@
-// Selecionar os elementos
-const subscribeButton = document.querySelector(".btn-subscribe");
-const modal = document.querySelector(".modal-subscribe");
-const dismissButton = modal.querySelector(".btn-subscribe");
-const newsletterSection = document.querySelector(".section-newsletter");
+document.addEventListener("DOMContentLoaded", () => {
+  emailjs.init("SEU_USER_ID"); // Substitua pelo seu User ID
 
-// Exibir o modal ao clicar no botão de "Subscribe"
-subscribeButton.addEventListener("click", (e) => {
-  e.preventDefault(); // Evita o envio do formulário (caso seja necessário)
-  modal.style.display = "flex"; // Exibe o modal
-  newsletterSection.style.display = "none"; // Oculta a seção de newsletter
-});
+  const form = document.querySelector(".form");
+  const inputEmail = form.querySelector("input[type='email']");
 
-// Fechar o modal ao clicar no botão "Dismiss message"
-dismissButton.addEventListener("click", () => {
-  modal.style.display = "none"; // Oculta o modal
-  newsletterSection.style.display = "block"; // Reexibe a seção de newsletter
+  form.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const email = inputEmail.value;
+
+    if (!email || !email.includes("@")) {
+      alert("Por favor, insira um e-mail válido.");
+      return;
+    }
+
+    // Configurar os dados do e-mail
+    const templateParams = {
+      email: email, // O e-mail do usuário
+      message: "Obrigado por se inscrever em nossa newsletter!", // Mensagem personalizada
+    };
+
+    // Enviar o e-mail
+    emailjs.send("SEU_SERVICE_ID", "SEU_TEMPLATE_ID", templateParams).then(
+      (response) => {
+        alert("E-mail enviado com sucesso!");
+        console.log("SUCESSO:", response);
+      },
+      (error) => {
+        alert("Erro ao enviar o e-mail. Tente novamente.");
+        console.error("ERRO:", error);
+      }
+    );
+  });
 });
