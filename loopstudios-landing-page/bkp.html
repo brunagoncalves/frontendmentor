@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon.png"/>
+    <title>Frontend Mentor | Loopstudios</title>
+    <!-- Fonts Google -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Josefin+Sans:wght@300&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/global.css" />
+  </head>
+  <body>    
+    <header class="header">
+      <nav class="navbar">
+        <div class="brand">
+          <a href="/" aria-label="Menu">
+            <span class="sr-only">Loopstudios</span>
+            <img class="img-brand" src="assets/images/logo.svg" alt="Logo Loopstudios" />
+          </a>
+        </div>
+
+        <button type="button" class="menu-toggle" id="mobile-menu" aria-label="Open Menu">
+          <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+          <svg class="close-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="6" x2="6" y2="18"></line>
+              <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+
+        <ul class="navbar-links">
+          <li><a class="nav-link" href="#">About</a></li>
+          <li><a class="nav-link" href="#">Carees</a></li>
+          <li><a class="nav-link" href="#">Events</a></li>
+          <li><a class="nav-link" href="#">Products</a></li>
+          <li><a class="nav-link" href="#">Support</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <picture>
+        <source srcset="assets/images/desktop/image-hero.jpg">
+        <img class="img-hero" src="assets/images/mobile/image-hero.jpg" alt="">
+      </picture>
+      <div class="content-hero">
+        <div class="box-hero">
+          <h1 class="font-title">Immersive experiences that deliver</h1>
+        </div>
+      </div>
+    </section>
+
+    <section class="interactive">
+      <picture>
+        <source srcset="assets/images/desktop/image-interactive.jpg">
+        <img src="assets/images/mobile/image-interactive.jpg" alt="">
+      </picture>
+      <div>
+        <h2>The leader in interactive VR</h2>
+        <p>Founded in 2011, Loopstudios has been producing world-class virtual reality projects 
+          for some of the best companies around the globe. Our award-winning creations have 
+          transformed businesses through digital experiences that bind to their brand.
+        </p>
+      </div>
+    </section>
+
+    <div class="attribution">
+      Challenge by<a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
+      Coded by <a href="https:\\brunagoncalves.me">Bruna Gonçalves</a>.
+    </div>
+  </body>
+
+  <script src="assets/js/main.js"></script>
+</html>

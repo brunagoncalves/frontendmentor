@@ -1,0 +1,128 @@
+html {
+  font-size: 93.75%;
+}
+
+body {
+  font-size: 0.9375rem;
+  background-color: #f1f1f1;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Hide an element visually without hiding it from screen readers */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+.attribution {
+  display: none;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+/* Header */
+.header {
+  width: 100%;
+  position: fixed;
+  z-index: 5;
+}
+.header .navbar {
+  max-width: 80rem;
+  margin: auto;
+  padding: 2.5rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header .navbar .brand {
+  z-index: 2;
+}
+.header .navbar .brand .img-brand {
+  width: 100%;
+  display: block;
+}
+.header .navbar .menu-toggle {
+  position: relative;
+  display: block;
+  border: none;
+  background: none;
+  z-index: 1;
+  cursor: pointer;
+}
+.header .navbar .menu-toggle .close-icon {
+  display: none;
+}
+.header .navbar .navbar-links {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #000000;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 1.5rem;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.header .navbar .navbar-links .nav-link {
+  font-family: "Josefin Sans", serif;
+  font-size: 1.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.header .navbar .navbar-links.active {
+  transform: translateX(0);
+}
+@media screen and (min-width: 48rem) {
+  .header .navbar .menu-toggle {
+    display: none;
+  }
+  .header .navbar .navbar-links {
+    position: inherit;
+    flex-direction: row;
+    justify-content: end;
+    padding: 0;
+    background-color: transparent;
+    transform: translateX(0);
+  }
+  .header .navbar .navbar-links .nav-link {
+    position: relative;
+    font-size: var(--font-base);
+    font-size: 0.9375rem;
+    text-transform: initial;
+  }
+  .header .navbar .navbar-links .nav-link::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--white);
+    bottom: -8px;
+    left: 0;
+    transition: width 0.3s ease;
+  }
+  .header .navbar .navbar-links .nav-link:hover::after {
+    width: 50%;
+  }
+}
+
+/* Hero */
+
+/*# sourceMappingURL=global.css.map */

@@ -1,20 +1,33 @@
-:root {
-  --font-primary: "Roboto", sans-serif;
-  --dark-slate-grey: hsl(234, 29%, 20%);
-  --charcoal-grey: hsl(235, 18%, 26%);
-  --grey: hsl(231, 7%, 60%);
-  --white: hsl(0, 0%, 100%);
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+$font-primary: "Roboto", sans-serif;
+$dark-slate-grey: #242742;
+$charcoal-grey: hsl(235, 18%, 26%);
+$grey: hsl(231, 7%, 60%);
+$white: hsl(0, 0%, 100%);
 
 body {
   width: 100%;
-  background-color: var(--charcoal-grey);
+  background-color: $charcoal-grey;
+  font-family: $font-primary;
+  color: $dark-slate-grey;
+}
+
+.font-base {
+  font-family: $font-primary;
+  font-style: normal;
+  font-display: swap;
+}
+
+.btn {
+  width: 100%;
+  padding: 1.125rem 1rem;
+  border-radius: 0.5rem;
+}
+
+.btn-form {
+  @extend .btn;
+  background-color: $dark-slate-grey;
+  color: $white;
+  font-weight: 700;
 }
 
 .attribution {
@@ -23,199 +36,111 @@ body {
   display: none;
 }
 
-.text-1-bold {
-  font-family: var(--font-primary);
-  font-size: clamp(2.5rem, 2.148rem + 1.5vw, 3.5rem);
-  font-weight: 700;
-  color: var(--dark-slate-grey);
-}
-
-.text-2-bold {
-  font-family: var(--font-primary);
-  font-size: 1rem;
-  font-weight: 700;
-  color: var(--white);
-}
-
-.text-3-regular {
-  font-family: var(--font-primary);
-  font-weight: 400;
-  font-style: normal;
-  line-height: 150%;
-  color: var(--dark-slate-grey);
+main {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .section-newsletter {
-  background-color: var(--white);
+  background-color: $white;
+
+  .img-newsletter {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
 
   .content-newsletter {
-    display: grid;
-
-    .img-newsletter {
-      display: block;
-      width: 100%;
-      height: auto;
-    }
+    padding: 2.5rem 1.5rem;
 
     .text-newsletter {
-      padding: 2.5rem 1.5rem;
       display: flex;
       flex-direction: column;
-      gap: 2.5rem;
 
-      .text,
-      .form {
+      h1 {
+        @extend .font-base;
+        font-size: 2.5rem;
+        font-weight: 700;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+        width: 100%;
         display: flex;
         flex-direction: column;
-      }
+        justify-content: center;
 
-      .text {
-        gap: 1.5rem;
-        .list {
-          p {
-            display: flex;
-            margin-bottom: 0.625rem;
-            gap: 1rem;
-          }
-        }
-      }
-
-      .form {
-        p {
-          font-family: var(--font-primary);
-          font-size: 0.75rem;
-          font-weight: 700;
+        li {
+          display: flex;
+          align-items: center;
           line-height: 150%;
-          color: var(--dark-slate-grey);
-          margin-bottom: 8px;
-        }
 
-        input {
-          margin-bottom: 1.5rem;
-          padding: 1rem 1.5rem;
-          font-size: 1rem;
-          color: var(--dark-slate-grey);
-          border: 1px solid var(--grey);
-          border-radius: 0.5rem;
+          &:not(:last-child) {
+            margin-bottom: 0.625rem;
+          }
 
-          &::placeholder {
-            color: var(--dark-slate-grey);
-            opacity: 50%;
+          svg {
+            margin-right: 16px;
           }
         }
       }
     }
-  }
-}
 
-.btn-subscribe {
-  width: 100%;
-  background-color: var(--dark-slate-grey);
-  border-radius: 0.5rem;
-  padding: 1rem 1.5rem;
-  cursor: pointer;
-  transition: all ease-in-out 0.3s;
-  border: none;
+    .form {
+      p {
+        @extend .font-base;
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: $dark-slate-grey;
+      }
 
-  &:hover {
-    background: linear-gradient(#ff6a3a, #ff527b);
-  }
-}
-
-.modal-subscribe {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  align-items: center; /* Centraliza verticalmente */
-  justify-content: center; /* Centraliza horizontalmente */
-  background-color: rgba(0, 0, 0, 0.8); /* Adiciona uma camada escura */
-  z-index: 1000;
-
-  .content-modal {
-    background-color: var(--white);
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    padding: 9.3125rem 1.5rem 2.5rem 1.5rem;
-
-    .message-subscribe {
-      h1 {
-        padding: 1.5rem 0 2.5rem 0;
+      input {
+        width: 100%;
+        box-sizing: border-box;
+        padding: 1rem 1.5rem;
+        border-radius: 0.5rem;
+        margin-bottom: 1.5rem;
       }
     }
   }
-}
 
-@media (min-width: 48rem) {
-  body {
-    min-height: 100vh;
+  @media (min-width: 48.0625rem) {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0 1rem;
-  }
-
-  .section-newsletter {
-    max-width: 58rem;
     border-radius: 2.25rem;
+    padding: 1.5rem;
+
+    .img-newsletter {
+      height: 100%;
+    }
 
     .content-newsletter {
-      grid-template-columns: repeat(2, 1fr);
-      align-items: center;
-      justify-content: center;
-      padding: 1.5rem;
-
-      .images {
-        order: 2;
-      }
-
-      .text-newsletter {
-        padding: 0;
-        margin: auto 4rem auto 2.5rem;
-      }
-    }
-  }
-
-  .modal-subscribe {
-    .content-modal {
-      max-width: 31.5rem;
-      height: auto;
-      border-radius: 2.25rem;
-      padding: 3rem 4rem 4rem 4rem;
-
-      .message-subscribe {
-        h1 {
-          padding: 2.5rem 0 1.5rem 0;
-        }
-
-        p {
-          padding-bottom: 2.5rem;
-        }
-      }
+      max-width: 23.5rem;
     }
   }
 }
 
 .box-success {
-  background-color: var(--white);
-  padding: 4rem;
-  border-radius: 2.25rem;
-  max-width: 31.5rem;
+  background-color: $white;
+  padding: 1.5rem;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-    margin-bottom: 2.5rem;
+  h1 {
+    @extend .font-base;
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-top: 2.5rem;
+    margin-bottom: 1.5rem;
   }
 
   p {
-    margin-top: 1.5rem;
-    margin-bottom: 2.5rem;
+    margin-bottom: 16.4375rem;
   }
 }
