@@ -9,30 +9,27 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@400;700&display=swap" />
-    <!-- CSS Custom -->
-    <link rel="stylesheet" href="assets/css/normalize.css">
-    <link rel="stylesheet" href="assets/css/global.css" />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="src/css/global.css" />
     <!-- JS -->
-    <script src="assets/js/main.js" defer></script>
+    <script src="src/js/main.js" defer></script>
   </head>
-  <body>
-    <main>
-      <section class="section-newsletter">
+  <body class="bg-paleNavy">
+    <main class="w-full h-screen md:flex md:flex-col md:items-center md:justify-center md:p-4">
+      <article class="md:max-w-[58rem] md:h-auto md:grid md:grid-cols-2 md:gap-8 lg:gap-16 bg-white md:rounded-[2.25rem] md:p-6">
+        <picture class="md:order-2 h-full md:overflow-hidden">
+          <source srcset="src/images/illustration-sign-up-desktop.svg" media="(min-width: 48rem)">
+          <img class="d-block w-full h-full" src="src/images/illustration-sign-up-mobile.svg" alt="Illustration">
+        </picture>
 
-        <div class="imge">
-          <picture class="images">
-            <source srcset="assets/images/illustration-sign-up-desktop.svg" media="(min-width: 48.0625rem)">
-            <img class="img-newsletter" src="assets/images/illustration-sign-up-mobile.svg" alt="Illustration">
-          </picture>
-        </div>
+        <div class="px-6 py-10 md:flex md:flex-col md:items-center md:justify-center md:order-1 md:ml-6 lg:ml-10 md:p-0">
+          <div class="flex flex-col gap-6 mb-10">
+            <h1 class="text-[2.5rem] font-bold lg:text-[3.5rem] text-darkNavy">Stay updated!</h1>
+            <p class="text-darkNavy">Join 60,000+ product managers receiving monthly updates on:</p>
 
-        <div class="content-newsletter">  
-          <div class="text-newsletter">
-            <h1>Stay updated!</h1>
-            <p>Join 60,000+ product managers receiving monthly updates on:</p>
-            <ul>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+            <ul class="text-darkNavy">
+              <li class="flex items-center mb-[.625rem]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" class="mr-4">
                   <g fill="none">
                     <circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/>
                     <path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/>
@@ -40,8 +37,8 @@
                 </svg>
                 Product discovery and building what matters
               </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+              <li class="flex items-center mb-[.625rem]">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" class="mr-4">
                   <g fill="none">
                     <circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/>
                     <path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/>
@@ -49,8 +46,8 @@
                 </svg>
                 Measuring to ensure updates are a success
               </li>
-              <li>
-                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21">
+              <li class="flex items-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 21 21" class="mr-4">
                   <g fill="none">
                     <circle cx="10.5" cy="10.5" r="10.5" fill="#FF6155"/>
                     <path stroke="#FFF" stroke-width="2" d="M6 11.381 8.735 14 15 8"/>
@@ -59,21 +56,18 @@
                 And much more!
               </li>
             </ul>
+          </div>
 
-            <form class="form" id="signup-form">
-              <p>Email address</p>
-              <input type="email" placeholder="email@company.com">
-              <button class="btn-form" type="submit">Subscribe to monthly newsletter</button>
-            </form>
-          </div>     
-
-        </div>
-      </section>
-
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank" rel="noopener">Frontend Mentor</a>.
-        Coded by <a href="https://brunagoncalves.me">Bruna Gonçalves</a>.
-      </div>
+          <form>
+            <div class="flex justify-between">
+              <label for="email" class="text-xs font-bold pb-2 text-darkNavy">Email address</label>
+              <p id="email-error" class="hidden text-vermelion text-xs font-bold">Valid email required</p>
+            </div>
+            <input class="border border-gray placeholder:text-gray text-darkNavy w-full px-6 py-4 mb-6 rounded-lg" type="email" name="email" id="email" placeholder="email@company.com">
+            <button id="subscribe-button" class="w-full py-4 bg-darkNavy text-white font-bold rounded-lg bg-gradient-to-r hover:from-gradone hover:to-gradtwo hover:drop-shadow-drop" type="submit">Subscribe to monthly newsletter</button>
+          </form>
+        </div>        
+      </article>
     </main>
   </body>
 </html>
