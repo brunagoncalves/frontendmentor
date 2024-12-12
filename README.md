@@ -2,6 +2,8 @@
 
 Repository dedicated to Frontend Mentor challenges. All developed projects are centralized here, focusing on improving front-end skills and best development practices.
 
+[Live Demos](https://brunagoncalves.github.io/frontendmentor/)
+
 ## Projects
 
 - [QR Code Component Solution](qrcode)
