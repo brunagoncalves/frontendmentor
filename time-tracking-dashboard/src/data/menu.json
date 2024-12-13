@@ -2,15 +2,15 @@
   "menuItems": [
     {
       "name": "Dayly",
-      "link": "#"
+      "link": "dayly"
     },
     {
       "name": "Weekly",
-      "link": "#"
+      "link": "weekly"
     },
     {
       "name": "Monthly",
-      "link": "#"
+      "link": "monthly"
     }
   ]
 }

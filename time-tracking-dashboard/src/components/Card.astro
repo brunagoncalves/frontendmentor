@@ -1,6 +1,19 @@
 ---
+import iconEllipsis from "../images/icon-ellipsis.svg";
+import icon from "../images/icon-work.svg";
 ---
 
-<article>
-  <h1>Card</h1>
+<article class="bg-[#FF8B64] rounded-[15px]">
+  <img class="flex justify-self-end" src={icon.src} alt="" />
+  <div class="py-7 px-6 bg-[#1C204B] rounded-[15px]">
+    <div class="flex items-center justify-between">
+      <h2 class="font-medium text-[18px] text-white">Work</h2>
+      <img src={iconEllipsis.src} alt="" />
+    </div>
+
+    <div class="flex items-center justify-between">
+      <h3 class="text-[32px] text-white font-light">32hrs</h3>
+      <p class="text-[#BBC0FF] text-[15px]">Last Week - 36hrs</p>
+    </div>
+  </div>
 </article>
