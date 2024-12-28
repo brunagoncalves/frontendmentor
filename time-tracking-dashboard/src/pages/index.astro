@@ -1,40 +1,42 @@
 ---
-import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
-import avatar from "../images/image-jeremy.png";
+import Layout from "@layout/Layout.astro";
+import LinkButton from "@components/LinkButton.astro";
+import Card from "@components/Card.astro";
 
-import type { Menu } from "../types/menuTypes";
-import menuData from "../data/menu.json";
+import iconAvatar from "@images/image-jeremy.png";
 
-const menu: Menu = menuData;
+import { menuItem } from "@data/menu";
+import timeData from "@data/data.json";
 ---
 
 <Layout>
-  <main class="p-4 grid gap-6">
-    <aside class="bg-[#1C204B] rounded-[15px]">
-      <header class="flex bg-[#5747EA] rounded-2xl py-9 px-8 gap-5">
-        <img class="w-16 h-16" src={avatar.src} alt="Jeremy Robson" />
-        <div>
-          <p class="text-[#BBC0FF] text-[15px]">Report for</p>
-          <h1 class="text-white text-2xl font-light">Jeremy Robson</h1>
-        </div>
-      </header>
+  <main class="w-full min-h-screen flex items-center justify-center px-6 my-20 md:my-0">
+    <div class="w-full max-w-[1110px] grid gap-6 md:grid-cols-4 md:gap-[30px]">
+      <aside class="bg-indigo-900 rounded-[15px] max-w-[327px] mx-auto md:row-span-2 h-full">
+        <header class="bg-indigo-700 flex md:flex-col md:items-baseline items-center gap-5 md:gap-11 py-[34px] px-8 rounded-[15px]">
+          <img class="w-16 h-auto border-[3px] border-white rounded-full" src={iconAvatar.src} alt="Jeremy Robson" />
+          <div>
+            <p class="text-indigo-300 text-lg md:mb-[3px]">Report for</p>
+            <h1 class="text-white font-light text-2xl md:text-[40px] leading-tight">Jeremy Robson</h1>
+          </div>
+        </header>
 
-      <nav class="p-6">
-        <ul class="flex justify-around">
-          {
-            menu.menuItems.map((item) => (
-              <li>
-                <a class="text-[#7078C9] text-[18px] hover:text-white active:text-white" href={item.link}>{item.name}</a>
-              </li>
-            ))
-          }
-        </ul>
-      </nav>
-    </aside>
+        <nav class="flex md:flex-col md:items-baseline items-center justify-between p-6 md:p-8">
+          <div class="flex md:flex-col md:items-baseline items-center justify-between gap-4 w-full h-full">
+            {menuItem.map((item) => <LinkButton name={item.name} />)}
+          </div>
+        </nav>
+      </aside>
 
-    <section>
-      <Card />
-    </section>
+      {
+        timeData.map((item) => (
+          <Card
+            title={item.title}
+            timeframes={item.timeframes}
+            activeTimeframe={"daily"}
+          />
+        ))
+      }
+    </div>
   </main>
 </Layout>

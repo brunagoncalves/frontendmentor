@@ -1,8 +1,3 @@
-export interface MenuItem {
+export interface MenuTypes {
   name: string;
-  link: string;
-}
-
-export interface Menu {
-  menuItems: MenuItem[];
 }

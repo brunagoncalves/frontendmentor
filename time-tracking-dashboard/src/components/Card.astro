@@ -1,19 +1,127 @@
 ---
-import iconEllipsis from "../images/icon-ellipsis.svg";
-import icon from "../images/icon-work.svg";
+import type { TimeframeData } from "../types/timeframeTypes";
+
+import iconWork from "@images/icon-work.svg";
+import iconPlay from "@images/icon-play.svg";
+import iconStudy from "@images/icon-study.svg";
+import iconExercise from "@images/icon-exercise.svg";
+import iconSocial from "@images/icon-social.svg";
+import iconSelfCare from "@images/icon-self-care.svg";
+import iconEllipsis from "@images/icon-ellipsis.svg";
+
+const { title, timeframes, activeTimeframe } = Astro.props as TimeframeData;
+
+const iconMap = {
+  Work: iconWork,
+  Play: iconPlay,
+  Study: iconStudy,
+  Exercise: iconExercise,
+  Social: iconSocial,
+  "Self Care": iconSelfCare,
+};
+
+const backgroundColorMap = {
+  Work: "bg-work",
+  Play: "bg-play",
+  Study: "bg-study",
+  Exercise: "bg-exercise",
+  Social: "bg-social",
+  "Self Care": "bg-selfcare",
+} as const;
+
+const icon = iconMap[title as keyof typeof iconMap] || iconWork;
+const backgroundColor =
+  backgroundColorMap[title as keyof typeof backgroundColorMap] || "bg-red-500";
 ---
 
-<article class="bg-[#FF8B64] rounded-[15px]">
-  <img class="flex justify-self-end" src={icon.src} alt="" />
-  <div class="py-7 px-6 bg-[#1C204B] rounded-[15px]">
-    <div class="flex items-center justify-between">
-      <h2 class="font-medium text-[18px] text-white">Work</h2>
-      <img src={iconEllipsis.src} alt="" />
+<article data-title={title} class="relative overflow-hidden text-white shadow rounded-[15px] w-full h-full">
+  <div class="grid grid-rows-[57px_1fr]">
+    <div class={`${backgroundColor} relative overflow-hidden flex justify-end -mb-3`}>
+      <img src={icon.src} alt="" class="absolute -top-2 right-4 h-[78px] w-auto" />
     </div>
-
-    <div class="flex items-center justify-between">
-      <h3 class="text-[32px] text-white font-light">32hrs</h3>
-      <p class="text-[#BBC0FF] text-[15px]">Last Week - 36hrs</p>
+    <div class="bg-indigo-900 px-6 py-7 rounded-[15px] z-10">
+      <div class="flex items-center justify-between">
+        <h3 class="text-lg font-medium">{title}</h3>
+        <a href="#"><img src={iconEllipsis.src} alt="" /></a>
+      </div>
+      <div class="flex md:flex-col md:items-baseline items-center justify-between mt-2 md:gap-2">
+        <p class="text-[32px] font-light" data-current></p>
+        <p class="text-[15px] text-indigo-300" data-previous></p>
+      </div>
     </div>
   </div>
 </article>
+
+<script>
+  interface TimeframeData {
+    [key: string]: {
+      current: number;
+      previous: number;
+    };
+  }
+
+  interface TimeData {
+    title: string;
+    timeframes: TimeframeData;
+  }
+
+  const updateCards = (timeframe: string) => {
+    // Fetch the JSON data
+    fetch("/src/data/data.json")
+      .then((response) => response.json())
+      .then((data: TimeData[]) => {
+        const cards = document.querySelectorAll("article");
+
+        cards.forEach((card) => {
+          const title = card.getAttribute("data-title");
+          const timeData = data.find((item) => item.title === title);
+
+          if (timeData) {
+            const currentElement = card.querySelector("[data-current]");
+            const previousElement = card.querySelector("[data-previous]");
+
+            if (currentElement && previousElement) {
+              const current = timeData.timeframes[timeframe].current;
+              const previous = timeData.timeframes[timeframe].previous;
+
+              currentElement.textContent = `${current}hrs`;
+              previousElement.textContent = `Last Week - ${previous}hrs`;
+            }
+          }
+        });
+      });
+  };
+
+  // Initial load with 'daily' timeframe
+  document.addEventListener("DOMContentLoaded", () => {
+    const buttons = document.querySelectorAll<HTMLButtonElement>(
+      "button[data-timeframe]"
+    );
+    const dailyButton = document.querySelector<HTMLButtonElement>(
+      'button[data-timeframe="daily"]'
+    );
+
+    // Set initial active state for daily button
+    if (dailyButton) {
+      dailyButton.dataset.active = "true";
+    }
+
+    // Initial update of cards with daily data
+    updateCards("daily");
+
+    // Add click event listeners
+    buttons.forEach((button) => {
+      button.addEventListener("click", () => {
+        const timeframe = button.dataset.timeframe;
+        if (timeframe) {
+          // Update active state
+          buttons.forEach((b) => delete b.dataset.active);
+          button.dataset.active = "true";
+
+          // Update cards
+          updateCards(timeframe);
+        }
+      });
+    });
+  });
+</script>
