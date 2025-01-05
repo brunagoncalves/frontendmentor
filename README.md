@@ -17,3 +17,4 @@ Repository dedicated to Frontend Mentor challenges. All developed projects are c
 - [Meet landing page solution](meet-landing-page)
 - [NFT preview card component solution](nft-preview-card)
 - [Newsletter](newsletter-signup-form)
+- [Tip Calculator App](tip-calculator-app)
