@@ -1,0 +1,13 @@
+{
+  "name": "password-generator-app",
+  "version": "1.0.0",
+  "description": "Seus usuários devem ser capazes de:",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "sass --watch src/scss/styles.scss src/css/styles.css"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
